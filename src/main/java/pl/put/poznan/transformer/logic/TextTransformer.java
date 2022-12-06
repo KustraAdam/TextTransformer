@@ -72,7 +72,30 @@ public class TextTransformer {
                     // TODO: Implement abbreviations to na przykład; między innymi; i tym podobne
                     break;
                 case "stands-for":
-                    // TODO: Implement converting abbreviations to their full form equivalents (prof.; dr.; np.; itd.)
+                    String[] temp = text.split(" ");
+
+                    for(int i=0;i<temp.length;i++){
+                        if(temp[i].equalsIgnoreCase("prof.")){
+                            temp[i]=temp[i].charAt(0)+"rofesor";
+                        }
+                        else if(temp[i].equalsIgnoreCase("Dr.")){
+                            temp[i]=temp[i].charAt(0)+"oktor";
+                        }
+                        else if(temp[i].equalsIgnoreCase("Np.")){
+                            temp[i]=temp[i].charAt(0)+"a przykład";
+                        }
+                        else if(temp[i].equalsIgnoreCase("Itd.")){
+                            temp[i]=temp[i].charAt(0)+" tak dalej";
+                        }
+                    }
+
+                    StringBuffer sb = new StringBuffer();
+                    for(int i = 0; i < temp.length-1; i++) {
+                        sb.append(temp[i]+" ");
+                    }
+                    sb.append(temp[temp.length-1]);
+
+                    text = sb.toString();
                     break;
                 case "escape":
                     // TODO: Implement escaping LaTeX's special characters ($, &)
