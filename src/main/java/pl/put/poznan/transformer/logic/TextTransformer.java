@@ -72,23 +72,30 @@ public class TextTransformer {
                     // TODO: Implement abbreviations to na przykład; między innymi; i tym podobne
                     break;
                 case "stands-for":
+                    //Extract words from text
                     String[] temp = text.split(" ");
 
+                    // Iterate over every word in the array and replace the abbreviations with full text
                     for(int i=0;i<temp.length;i++){
                         if(temp[i].equalsIgnoreCase("prof.")){
-                            temp[i]=temp[i].charAt(0)+"rofesor";
+                            if(temp[i].equals("PROF.")) temp[i]="PROFESOR";
+                            else temp[i]=temp[i].charAt(0)+"rofesor";
                         }
-                        else if(temp[i].equalsIgnoreCase("Dr.")){
-                            temp[i]=temp[i].charAt(0)+"oktor";
+                        else if(temp[i].equalsIgnoreCase("dr.")){
+                            if(temp[i].equals("DR.")) temp[i]="DOKTOR";
+                            else temp[i]=temp[i].charAt(0)+"oktor";
                         }
-                        else if(temp[i].equalsIgnoreCase("Np.")){
-                            temp[i]=temp[i].charAt(0)+"a przykład";
+                        else if(temp[i].equalsIgnoreCase("np.")){
+                            if(temp[i].equals("NP.")) temp[i]="NA PRZYKLAD";
+                            else temp[i]=temp[i].charAt(0)+"a przykład";
                         }
-                        else if(temp[i].equalsIgnoreCase("Itd.")){
-                            temp[i]=temp[i].charAt(0)+" tak dalej";
+                        else if(temp[i].equalsIgnoreCase("itd.")){
+                            if(temp[i].equals("ITD.")) temp[i]="I TAK DALEJ";
+                            else temp[i]=temp[i].charAt(0)+" tak dalej";
                         }
                     }
 
+                    //Creating string buffer to convert array to string
                     StringBuffer sb = new StringBuffer();
                     for(int i = 0; i < temp.length-1; i++) {
                         sb.append(temp[i]+" ");
@@ -98,7 +105,16 @@ public class TextTransformer {
                     text = sb.toString();
                     break;
                 case "escape":
-                    // TODO: Implement escaping LaTeX's special characters ($, &)
+                    //Creating string buffer to easily insert a new character
+                    StringBuffer tempsb = new StringBuffer(text);
+                    for(int i = 0; i<text.length();i++){
+                        if(tempsb.charAt(i)=='$' || tempsb.charAt(i)=='&'){
+                            tempsb.insert(i, '\\');
+                            i++;
+                        }
+                    }
+                    //Convert string buffer to string
+                    text=tempsb.toString();
                     break;
                 case "trim":
                     // TODO: Implement removal of subsequent repetitions
