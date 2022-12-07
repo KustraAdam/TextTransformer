@@ -92,7 +92,7 @@ public class TextTransformer {
                         }
                     }
 
-                    //Creating string buffer to convert list to string
+                    // Create string buffer to convert list to string
                     StringBuffer sb1 = new StringBuffer();
                     for(int i = 0; i < words.size()-1; i++) {
                         sb1.append(words.get(i)+" ");
@@ -124,7 +124,7 @@ public class TextTransformer {
                         }
                     }
 
-                    //Creating string buffer to convert array to string
+                    // Create string buffer to convert array to string
                     StringBuffer sb2 = new StringBuffer();
                     for(int i = 0; i < temparray.length-1; i++) {
                         sb2.append(temparray[i]+" ");
@@ -134,7 +134,7 @@ public class TextTransformer {
                     text = sb2.toString();
                     break;
                 case "escape":
-                    //Creating string buffer to easily insert a new character
+                    // Create string buffer to easily insert a new character
                     StringBuffer tempsb = new StringBuffer(text);
                     for(int i = 0; i<text.length();i++){
                         if(tempsb.charAt(i)=='$' || tempsb.charAt(i)=='&'){
@@ -142,11 +142,27 @@ public class TextTransformer {
                             i++;
                         }
                     }
-                    //Convert string buffer to string
+                    // Convert string buffer to string
                     text=tempsb.toString();
                     break;
                 case "trim":
-                    // TODO: Implement removal of subsequent repetitions
+                    List<String> list = new ArrayList<String>(Arrays.asList(text.split(" ")));
+
+                    // Iterate over every element in the list and remove duplicate words
+                    for(int i = 0 ; i < list.size(); i++) {
+                        while(i<list.size()-1 && list.get(i).equals(list.get(i+1))){
+                            list.remove(i+1);
+                        }
+                    }
+
+                    // Create string buffer to convert list to string
+                    StringBuffer sb3 = new StringBuffer();
+                    for(int i = 0; i < list.size()-1; i++) {
+                        sb3.append(list.get(i)+" ");
+                    }
+                    sb3.append(list.get(list.size()-1));
+
+                    text = sb3.toString();
                     break;
             }
 
