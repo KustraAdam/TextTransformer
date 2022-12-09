@@ -8,5 +8,4 @@
 #147306
 
 <br>
-![Workflow](https://github.com/KustraAdam/TextTransformer/actions/workflows/textTransformerActions.yml
-/badge.svg)
+![Workflow](https://github.com/KustraAdam/TextTransformer/actions/workflows/textTransformerActions.yml/badge.svg)
