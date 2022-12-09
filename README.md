@@ -7,5 +7,5 @@
 #148128
 #147306
 
-<br>
+
 ![Workflow](https://github.com/KustraAdam/TextTransformer/actions/workflows/textTransformerActions.yml/badge.svg)
