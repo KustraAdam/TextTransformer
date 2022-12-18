@@ -18,3 +18,17 @@ jobs:
         run: mvn --batch-mode --update-snapshots verify
       - name: Build jar file
         run: mvn package
+      - name: Deploy - Publish Javadoc
+        uses: MathieuSoysal/Javadoc-publisher.yml@v2.3.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          javadoc-branch: javadoc
+          java-version: 11
+          target-folder: javadoc
+          project: maven
+      - name: Maven Jar Publish
+        uses: eric2788/maven-jar-publish@v2
+        with:
+          java-version: 11
+          locate: .
+          upload-module: .
