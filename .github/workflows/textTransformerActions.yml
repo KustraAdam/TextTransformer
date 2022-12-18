@@ -35,3 +35,8 @@ jobs:
           java-version: 11
           locate: .
           upload-module: .
+      - name: Maven Version Bump Action
+        uses: nnichols/maven-version-bump-action@v4
+        with: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
