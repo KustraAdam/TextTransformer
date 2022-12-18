@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    
 
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +29,8 @@ jobs:
           project: maven
       - name: Maven Jar Publish
         uses: eric2788/maven-jar-publish@v2
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
           java-version: 11
           locate: .
