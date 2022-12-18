@@ -13,7 +13,7 @@
 
     <groupId>I7-Beta</groupId>
     <artifactId>TextTransformer</artifactId>
-    <version>0.1</version>
+    <version>1.0</version>
 
 	<properties>
         <java.version>11</java.version>
@@ -43,6 +43,12 @@
             <artifactId>json-path</artifactId>
             <scope>test</scope>
         </dependency>
+	<dependency>
+		<groupId>com.googlecode.json-simple</groupId>
+		<artifactId>json-simple</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+
     </dependencies>
 
 
@@ -51,6 +57,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
             </plugin>
         </plugins>
     </build>
