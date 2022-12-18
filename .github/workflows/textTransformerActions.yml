@@ -30,7 +30,7 @@ jobs:
       - name: Maven Version Bump Action
         uses: nnichols/maven-version-bump-action@v4
         with: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Maven Jar Publish
         uses: eric2788/maven-jar-publish@v2
         env: 
