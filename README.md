@@ -9,3 +9,4 @@
 
 
 ![Workflow](https://github.com/KustraAdam/TextTransformer/actions/workflows/textTransformerActions.yml/badge.svg)
+Dokumentacja:
