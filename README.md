@@ -8,5 +8,5 @@
 #147306 Kamil Stachowiak
 
 
-![Workflow](https://github.com/KustraAdam/TextTransformer/actions/workflows/textTransformerActions.yml/badge.svg)
-Dokumentacja:
+![Workflow](https://github.com/KustraAdam/TextTransformer/actions/workflows/textTransformerActions.yml/badge.svg) <br>
+[Dokumentacja](https://kustraadam.github.io/TextTransformer/javadoc/)
